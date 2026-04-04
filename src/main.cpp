@@ -6,7 +6,6 @@
 
 using namespace math;
 
-
 const float factor_de_corectie = 0.01f;
 
 // corectie ?????
@@ -143,8 +142,6 @@ void setup()
 
     hc06.begin(__BAUD__);
     
-
-
     model_init();
     start_millis = millis();
     last_print_millis = 0;
@@ -157,7 +154,7 @@ void loop()
 
     if (rez == "ok")
     {
-        
+
     }
 
     unsigned long now = millis();
