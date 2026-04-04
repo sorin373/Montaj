@@ -18,9 +18,8 @@ namespace __detail
         }
     };
 
-    class Vector
+    struct Vector
     {
-    public:
         Vector() :
             x(0), y(0), z(0) { }
 
@@ -79,37 +78,29 @@ namespace __detail
             this->z = this->z / n;
         }
 
-        double get_x() const noexcept { return this->x; }
-        double get_y() const noexcept { return this->y; }
-        double get_z() const noexcept { return this->z; }
-
         double x, y, z;
     };
 
-    class Sph
+    struct Sph
     {
-    public:
         Sph() noexcept
-            : m_theta(0), m_psi(0) { }
+            : theta(0), psi(0) { }
 
         Sph(double theta, double psi)
-            : m_theta(theta), m_psi(psi) { }
-
-        double get_theta() { return this->m_theta; }
-        double get_psi()   { return this->m_psi;   }
+            : theta(theta), psi(psi) { }
 
         void print()
         {
-            std::cout << m_theta << " " << m_psi << std::endl;
+            std::cout << theta << " " << psi << std::endl;
         }
 
-        double m_theta, m_psi;
+        double theta, psi;
     };
 
     Point sph_to_cart(Sph &sph)
     { 
-        return Point(cos(sph.get_theta() * M_PI / 180) * cos(sph.get_psi() * M_PI / 180), 
-            cos(sph.get_theta() * M_PI / 180) * sin(sph.get_psi() * M_PI / 180), sin(sph.get_theta() * M_PI / 180)
+        return Point(cos(sph.theta * M_PI / 180) * cos(sph.psi * M_PI / 180), 
+            cos(sph.theta * M_PI / 180) * sin(sph.psi * M_PI / 180), sin(sph.theta * M_PI / 180)
         ); 
     }
 
@@ -165,5 +156,6 @@ namespace __detail
     }
 }
 
-typedef __detail::Sph         Sph;
-typedef __detail::Vector      Vector;
+typedef __detail::Sph    Sph;
+typedef __detail::Vector Vector;
+typedef __detail::Point  Point;
