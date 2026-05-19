@@ -256,7 +256,7 @@ def main():
     # =========================
     # Viteză animație
     # =========================
-    speed_factor = 8
+    speed_factor = 4
     frame_indices = range(0, len(t), speed_factor)
 
     ani = FuncAnimation(
